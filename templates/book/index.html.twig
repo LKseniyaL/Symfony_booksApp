@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book index{% endblock %}
+
+{% block body %}
+    <h1>Books list</h1>
+    {{include('book/sorting.html.twig')}}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Published Year</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td><a href="{{ path('app_book_show', {'id': book.id}) }}">{{ book.title }}</a></td>
+                <td><a href="{{ path('app_book_show', {'id': book.id}) }}">{{ book.author }}</a></td>
+                <td><a href="{{ path('app_book_show', {'id': book.id}) }}">{{ book.description }}</a></td>
+                <td><a href="{{ path('app_book_show', {'id': book.id}) }}">{{ book.publishedYear }}</a></td>
+                <td><a href="{{ path('app_book_show', {'id': book.id}) }}">{{ book.price }}$</a></td>
+                <td class="btns_showAndedit">
+                    <div class="btns_showAndedit_show">{{ include('book/_delete_form.html.twig')}}</div>
+                    <div class="btns_showAndedit_line"></div>
+                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_new') }}" class="btn_create">Create new</a>
+{% endblock %}

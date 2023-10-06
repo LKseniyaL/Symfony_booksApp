@@ -1,0 +1,11 @@
+<form action="{{ path('app_book_index') }}" method="get" class="sorting_form">
+    <select name="sort">
+        <option value="title" {% if app.request.get('sort') == 'title' %}selected{% endif %}>Title</option>
+        <option value="price" {% if app.request.get('sort') == 'price' %}selected{% endif %}>Price</option>
+    </select>
+    <select name="direction">
+        <option value="ASC" {% if app.request.get('direction') == 'ASC' %}selected{% endif %}>Ascending</option>
+        <option value="DESC" {% if app.request.get('direction') == 'DESC' %}selected{% endif %}>Descending</option>
+    </select>
+    <input type="submit" value="Sort">
+</form>

@@ -1,0 +1,20 @@
+    <div class="wrapper">
+         {{ form_start(form)}}
+
+         {{ form_widget(form.title, {'attr': {'placeholder': 'Title'}}) }}
+            
+         {{ form_widget(form.author, {'attr': {'placeholder': 'Author'}}) }}
+            
+         {{ form_widget(form.publishedYear, {'attr': {'placeholder': 'Published year'}}) }}
+
+         {{ form_widget(form.price, {'attr': {'placeholder': 'Price'}}) }}
+
+         {{ form_widget(form.description, {'attr': {'placeholder': 'Description'}}) }}
+
+
+         <button class="btn">{{ button_label|default('Save') }}</button>
+         <a href="{{ path('app_book_index') }}">to list</a>
+
+
+         {{ form_end(form) }}
+    </div>
